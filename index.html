@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataDesh Soluções - Site a partir de R$ 50!</title>
+    
+    <!-- Fontes e ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #081a36;
+            --primary: #0f2f5f;
+            --primary-light: #2a5298;
+            --accent: #2563eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f9fafb;
+            --card: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--success), var(--accent), #8b5cf6);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo span {
+            color: var(--success);
+        }
+
+        .slogan {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 1rem auto;
+            font-style: italic;
+        }
+
+        /* Banner Promocional Principal */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--danger), #ff6b6b);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin: 2rem auto;
+            box-shadow: var(--shadow-lg);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .promo-banner h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-banner p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .promo-banner .preco {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+
+        /* Cards de contato */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: -4rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Seções */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        /* Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card.promocao::before {
+            content: '🔥 PROMOÇÃO ESPECIAL';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--danger);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .service-card.destaque {
+            border: 3px solid var(--success);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .old-price {
+            color: var(--text-light);
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+
+        .new-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--danger);
+        }
+
+        .price-small {
+            font-size: 1.8rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #0d9668;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        /* Tags promocionais */
+        .promo-tag {
+            background: var(--success);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Slogans de propaganda */
+        .slogan-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--warning);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .slogan-box i {
+            color: var(--warning);
+            margin-right: 0.5rem;
+        }
+
+        /* Pacotes */
+        .pacotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pacote-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .pacote-card.destaque {
+            border: 3px solid var(--success);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .pacote-tag {
+            background: var(--success);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .pacote-preco {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--danger);
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--success);
+            transform: translateY(-3px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            .slogan { font-size: 1rem; }
+            .promo-banner h2 { font-size: 1.8rem; }
+            .promo-banner .preco { font-size: 2rem; }
+            .pacote-card.destaque { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Data<span>Desh</span></h1>
+                <p class="slogan">"Transformando dados em decisões, descomplicando a tecnologia"</p>
+                
+                <!-- Slogan Principal -->
+                <div style="margin-top: 1rem;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">
+                        <i class="fas fa-fire"></i> Site completo por apenas R$ 100? É real! Currículo + Portfólio em um só pacote!
+                    </span>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="#contato" class="btn btn-success" style="margin-right: 1rem; width: auto;">
+                        <i class="fab fa-whatsapp"></i> Fale Conosco
+                    </a>
+                    <a href="#servicos" class="btn btn-primary" style="width: auto;">
+                        <i class="fas fa-chart-line"></i> Ver Promoções
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cards de Contato Rápidos -->
+    <div class="container">
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <h3>E-mail</h3>
+                    <p>datadshsolucoes@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <div>
+                    <h3>WhatsApp</h3>
+                    <p>(31) 98498-7116</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h3>Atendimento</h3>
+                    <p>Seg-Sex, 9h às 18h</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-file-signature"></i></div>
+                <div>
+                    <h3>Contratos</h3>
+                    <p>Com nota fiscal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BANNER PROMOCIONAL PRINCIPAL -->
+    <div class="container">
+        <div class="promo-banner">
+            <span class="promo-tag">🔥 OFERTA IMPERDÍVEL 🔥</span>
+            <h2>CURRÍCULO + PORTFÓLIO</h2>
+            <p>Os dois serviços que vão alavancar sua carreira</p>
+            <div class="preco">R$ 100,00</div>
+            <p style="font-size: 1.1rem;">✅ Currículo profissional (R$50) + Portfólio completo (R$70) = <strong>R$120</strong></p>
+            <p style="font-size: 1.3rem; margin-top: 0.5rem;">🔥 Você leva os dois por apenas <strong>R$100</strong>! Economia de R$20!</p>
+            <a href="#contato" class="btn btn-danger" style="margin-top: 1rem; width: auto; font-size: 1.2rem; padding: 1rem 3rem;">
+                <i class="fab fa-whatsapp"></i> QUERO ESSA OFERTA!
+            </a>
+        </div>
+    </div>
+
+    <!-- Slogans de Propaganda -->
+    <div class="container">
+        <div class="slogan-box">
+            <i class="fas fa-bullhorn"></i> 🛍️ <strong>Quer vender na internet?</strong> Crie sua página por apenas R$ 100! Sua loja, seu produto, sua cara.
+        </div>
+        <div class="slogan-box">
+            <i class="fas fa-bullhorn"></i> 💼 <strong>Currículo que impressiona por R$ 50.</strong> Destaque-se no mercado de trabalho!
+        </div>
+        <div class="slogan-box">
+            <i class="fas fa-bullhorn"></i> 🎨 <strong>Mostre seu trabalho com um portfólio profissional por R$ 70.</strong> Cause a primeira impressão certa!
+        </div>
+    </div>
+
+    <!-- Serviços -->
+    <section id="servicos" class="container section">
+        <h2 class="section-title"><i class="fas fa-code"></i> Nossas Promoções Especiais</h2>
+        
+        <div class="services-grid">
+            <!-- CURRÍCULO - R$50 -->
+            <div class="service-card promocao">
+                <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Currículo Profissional</h3>
+                <div class="slogan-box" style="margin: 0.5rem 0; padding: 0.8rem;">
+                    💼 "Currículo que impressiona por apenas R$ 50!"
+                </div>
+                <p>Currículo em HTML/CSS responsivo, 2 colunas, timeline, barras de progresso. Pronto para GitHub Pages.</p>
+                <ul style="list-style: none; margin: 1rem 0; text-align: left;">
+                    <li>✓ Design moderno</li>
+                    <li>✓ Totalmente responsivo</li>
+                    <li>✓ Pronto para imprimir</li>
+                </ul>
+                <div class="service-price">
+                    <span class="old-price">R$ 120</span>
+                    <div class="new-price">R$ 50</div>
+                </div>
+                <a href="#contato" class="btn btn-primary">Quero meu currículo!</a>
+            </div>
+
+            <!-- PORTFÓLIO - R$70 -->
+            <div class="service-card promocao">
+                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Portfólio Profissional</h3>
+                <div class="slogan-box" style="margin: 0.5rem 0; padding: 0.8rem;">
+                    🎨 "Mostre seu trabalho por apenas R$ 70!"
+                </div>
+                <p>Site completo com header personalizado, cards de contato, seções de formação, experiência, projetos.</p>
+                <ul style="list-style: none; margin: 1rem 0; text-align: left;">
+                    <li>✓ 10+ seções completas</li>
+                    <li>✓ Análise SWOT incluída</li>
+                    <li>✓ Design premium</li>
+                </ul>
+                <div class="service-price">
+                    <span class="old-price">R$ 200</span>
+                    <div class="new-price">R$ 70</div>
+                </div>
+                <a href="#contato" class="btn btn-primary">Quero meu portfólio!</a>
+            </div>
+
+            <!-- KIT COMPLETO - R$100 -->
+            <div class="service-card destaque">
+                <span class="promo-tag">🔥 MAIS VENDIDO</span>
+                <div class="service-icon"><i class="fas fa-gift"></i></div>
+                <h3>KIT COMPLETO</h3>
+                <div class="slogan-box" style="margin: 0.5rem 0; padding: 0.8rem; background: #d1fae5;">
+                    🔥 "Site completo por apenas R$ 100? É real!"
+                </div>
+                <p><strong>Currículo + Portfólio</strong> em um pacote imperdível!</p>
+                <ul style="list-style: none; margin: 1rem 0; text-align: left;">
+                    <li>✓ Currículo profissional (R$50)</li>
+                    <li>✓ Portfólio completo (R$70)</li>
+                    <li>✓ Bônus: Configuração GitHub</li>
+                </ul>
+                <div class="service-price">
+                    <span class="old-price">R$ 120</span>
+                    <div class="new-price">R$ 100</div>
+                </div>
+                <a href="#contato" class="btn btn-success">Quero o KIT COMPLETO!</a>
+            </div>
+
+            <!-- PÁGINAS SIMPLES - A PARTIR DE R$100 -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <h3>Páginas Simples HTML/JavaScript</h3>
+                <div class="slogan-box" style="margin: 0.5rem 0; padding: 0.8rem;">
+                    🛍️ "Quer vender na internet? Crie sua página por apenas R$ 100!"
+                </div>
+                <p>Landing pages, sites institucionais, páginas de produto, loja virtual simples.</p>
+                <ul style="list-style: none; margin: 1rem 0; text-align: left;">
+                    <li>✓ Design personalizado</li>
+                    <li>✓ Responsivo</li>
+                    <li>✓ Integração com WhatsApp</li>
+                </ul>
+                <div class="service-price">
+                    <div class="new-price price-small">A partir de R$ 100</div>
+                </div>
+                <a href="#contato" class="btn btn-primary">Quero uma página!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pacotes Promocionais -->
+    <section class="container section">
+        <h2 class="section-title"><i class="fas fa-gift"></i> Escolha seu Pacote</h2>
+        
+        <div class="pacotes-grid">
+            <!-- Pacote Start -->
+            <div class="pacote-card">
+                <h3>PACOTE START</h3>
+                <div class="pacote-preco">R$ 100</div>
+                <p>Currículo Premium + Portfólio Completo</p>
+                <ul style="list-style: none; margin: 1rem 0;">
+                    <li>✓ Currículo profissional</li>
+                    <li>✓ Portfólio completo</li>
+                </ul>
+                <a href="#contato" class="btn btn-primary">Quero este!</a>
+            </div>
+
+            <!-- Pacote Profissional (Destaque) -->
+            <div class="pacote-card destaque">
+                <span class="pacote-tag">🔥 OFERTA ESPECIAL</span>
+                <h3>PACOTE PROFISSIONAL</h3>
+                <div class="pacote-preco">R$ 150</div>
+                <p>Currículo + Portfólio + Landing Page</p>
+                <ul style="list-style: none; margin: 1rem 0;">
+                    <li>✓ Currículo premium</li>
+                    <li>✓ Portfólio completo</li>
+                    <li>✓ Landing Page</li>
+                </ul>
+                <a href="#contato" class="btn btn-success">Quero este!</a>
+            </div>
+
+            <!-- Pacote Premium -->
+            <div class="pacote-card">
+                <h3>PACOTE PREMIUM</h3>
+                <div class="pacote-preco">R$ 250</div>
+                <p>Currículo + Portfólio + Landing Page + Dashboard</p>
+                <ul style="list-style: none; margin: 1rem 0;">
+                    <li>✓ Tudo do pacote anterior</li>
+                    <li>✓ Dashboard interativo</li>
+                </ul>
+                <a href="#contato" class="btn btn-primary">Quero este!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="container section">
+        <h2 class="section-title"><i class="fas fa-envelope"></i> Vamos Conversar?</h2>
+        
+        <div style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 3rem; border-radius: var(--radius); text-align: center;">
+            <i class="fab fa-whatsapp" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Garanta sua oferta agora mesmo!</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Currículo por R$50 | Portfólio por R$70 | KIT COMPLETO por R$100</p>
+            <a href="https://wa.me/5531984987116" class="btn btn-success" style="font-size: 1.3rem; padding: 1rem 3rem;" target="_blank">
+                <i class="fab fa-whatsapp"></i> (31) 98498-7116
+            </a>
+            <p style="margin-top: 2rem;">ou envie um e-mail para <strong>datadshsolucoes@gmail.com</strong></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 class="logo" style="color: white;">Data<span style="color: var(--success);">Desh</span></h3>
+                    <p>Soluções Tecnológicas</p>
+                    <p>CNPJ: [A PREENCHER]</p>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> datadshsolucoes@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> (31) 98498-7116</p>
+                </div>
+                <div>
+                    <h4>Horário</h4>
+                    <p>Segunda a Sexta</p>
+                    <p>9h às 18h</p>
+                </div>
+                <div>
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+            <p style="text-align: center;">© 2026 DataDesh Soluções Tecnológicas. Todos os direitos reservados.</p>
+            <p style="text-align: center; font-size: 0.9rem; margin-top: 1rem;">Promoções válidas por tempo limitado. Preços especiais para lançamento!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
