@@ -121,7 +121,7 @@
             box-shadow: var(--shadow);
         }
 
-        /* Banner de Lançamento - REDUZIDO */
+        /* Banner de Lançamento */
         .launch-banner {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
@@ -185,7 +185,7 @@
             margin-right: 0.8rem;
         }
 
-        /* Cards de contato - REDUZIDOS */
+        /* Cards de contato */
         .contact-strip {
             background: var(--light);
             border-radius: 60px;
@@ -319,7 +319,7 @@
             font-weight: 700;
         }
 
-        /* Cards de pacotes - REDUZIDOS */
+        /* Cards de pacotes */
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -439,52 +439,9 @@
             font-size: 0.85rem;
         }
 
-        /* Seção de contato */
+        /* Seção de contato - REMOVIDA e SUBSTITUÍDA */
         .contact-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2.5rem 0;
-        }
-
-        .contact-info {
-            background: var(--light);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-        }
-
-        .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-info p {
-            margin: 0.8rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-info i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            width: 20px;
-        }
-
-        .form-container {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            height: 550px;
-        }
-
-        .form-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            display: none; /* Seção removida */
         }
 
         /* Footer */
@@ -518,12 +475,46 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Banner de contato direto */
+        .contact-banner {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-banner-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-banner .btn-outline {
+            border-color: white;
+            color: white;
+        }
+
+        .contact-banner .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
-            .contact-section {
-                grid-template-columns: 1fr;
-            }
-            
             .contact-strip {
                 flex-direction: column;
                 gap: 0.8rem;
@@ -551,6 +542,10 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .contact-banner-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -567,16 +562,17 @@
                     <a href="https://wa.me/5531984987116" class="btn-header btn-header-wa" target="_blank">
                         <i class="fab fa-whatsapp"></i> FALE NO WHATSAPP
                     </a>
-                    <a href="#contato" class="btn-header btn-header-form">
+                    <!-- BOTÃO CORRIGIDO - Link direto para o formulário -->
+                    <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn-header btn-header-form" target="_blank">
                         <i class="fas fa-edit"></i> PREENCHER FORMULÁRIO
                     </a>
                 </div>
                 
                 <!-- Contato direto -->
                 <div class="contact-strip">
-                    <a href="https://datadeshsolucoes-design.github.io/servi-osdigitais/" class="contact-item">
+                    <a href="mailto:datadshsolucoes@gmail.com" class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        https://datadeshsolucoes-design.github.io/servi-osdigitais/
+                        datadshsolucoes@gmail.com
                     </a>
                     <span class="contact-item">
                         <i class="fas fa-clock"></i>
@@ -597,12 +593,12 @@
                 <span>R$ 297</span>
             </div>
             <p style="font-size: 0.95rem; margin-bottom: 1rem;">KIT COMPLETO: Currículo + Portfólio</p>
-            <a href="#contato" class="btn btn-outline btn-small" style="border-color: white; color: white;">
+            <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-outline btn-small" style="border-color: white; color: white;" target="_blank">
                 <i class="fas fa-gift"></i> GARANTIR OFERTA
             </a>
         </div>
 
-        <!-- PACOTES PRINCIPAIS (REDUZIDOS) -->
+        <!-- PACOTES PRINCIPAIS -->
         <h2 class="section-title">Pacotes especiais</h2>
         
         <div class="packages-grid">
@@ -612,7 +608,7 @@
                 <div class="package-old-price">R$ 600</div>
                 <div class="package-price">R$ 247</div>
                 <p style="font-size: 0.85rem; margin-bottom: 1rem;">Currículo + Landing Page</p>
-                <a href="#contato" class="btn btn-primary btn-small">Quero este</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" target="_blank">Quero este</a>
             </div>
 
             <!-- Pacote Profissional (Destaque) -->
@@ -622,7 +618,7 @@
                 <div class="package-old-price">R$ 850</div>
                 <div class="package-price">R$ 350</div>
                 <p style="font-size: 0.85rem; margin-bottom: 1rem;">Currículo + Portfólio + Landing</p>
-                <a href="#contato" class="btn btn-success btn-small">Quero este</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-success btn-small" target="_blank">Quero este</a>
             </div>
 
             <!-- Pacote Premium -->
@@ -631,7 +627,7 @@
                 <div class="package-old-price">R$ 1.500</div>
                 <div class="package-price">R$ 597</div>
                 <p style="font-size: 0.85rem; margin-bottom: 1rem;">Site completo + Dashboard</p>
-                <a href="#contato" class="btn btn-primary btn-small">Quero este</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" target="_blank">Quero este</a>
             </div>
         </div>
 
@@ -650,7 +646,7 @@
                     <span class="price-current">R$ 97</span>
                     <span class="price-save">-72%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- PORTFÓLIO - DESTAQUE AZUL -->
@@ -664,7 +660,7 @@
                     <span class="price-current">R$ 147</span>
                     <span class="price-save">-70%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- PÁGINA DE OFERTAS - DESTAQUE LARANJA -->
@@ -678,7 +674,7 @@
                     <span class="price-current">R$ 147</span>
                     <span class="price-save">-75%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Landing Page -->
@@ -691,7 +687,7 @@
                     <span class="price-current">R$ 197</span>
                     <span class="price-save">-67%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Transformação de Docs -->
@@ -704,7 +700,7 @@
                     <span class="price-current">R$ 30</span>
                     <span class="price-save">-62%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Página de Lançamento -->
@@ -717,7 +713,7 @@
                     <span class="price-current">R$ 60</span>
                     <span class="price-save">-70%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Catálogo de Produtos -->
@@ -730,7 +726,7 @@
                     <span class="price-current">R$ 197</span>
                     <span class="price-save">-67%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Cardápio Digital -->
@@ -743,7 +739,7 @@
                     <span class="price-current">R$ 197</span>
                     <span class="price-save">-67%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Página de Vagas -->
@@ -756,7 +752,7 @@
                     <span class="price-current">R$ 247</span>
                     <span class="price-save">-69%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Dashboard -->
@@ -769,7 +765,7 @@
                     <span class="price-current">R$ 297</span>
                     <span class="price-save">-70%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Página de Notícias -->
@@ -782,7 +778,7 @@
                     <span class="price-current">R$ 247</span>
                     <span class="price-save">-69%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
 
             <!-- Chatbot com IA -->
@@ -796,33 +792,24 @@
                     <span class="price-current">R$ 297</span>
                     <span class="price-save">-70%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-primary btn-small" style="width: 100%;" target="_blank">Solicitar</a>
             </div>
         </div>
 
-        <!-- SEÇÃO DE CONTATO -->
-        <h2 class="section-title" id="contato">Solicite seu orçamento</h2>
-        
-        <div class="contact-section">
-            <!-- Card de informações -->
-            <div class="contact-info">
-                <h3>Fale com a gente</h3>
-                <p><i class="fab fa-whatsapp"></i> <strong>(31) 98498-7116</strong></p>
-                <p><i class="fas fa-envelope"></i> datadshsolucoes@gmail.com</p>
-                <p><i class="fas fa-clock"></i> Segunda a Sexta, 9h às 18h</p>
-                
-                <hr style="margin: 1.5rem 0; border-color: var(--border);">
-                
-                <h3>Por que escolher a DataDesh?</h3>
-                <p><i class="fas fa-check-circle"></i> Atendimento personalizado</p>
-                <p><i class="fas fa-check-circle"></i> Preços justos e transparentes</p>
-                <p><i class="fas fa-check-circle"></i> Suporte incluso</p>
-                <p><i class="fas fa-check-circle"></i> Código fonte entregue</p>
-            </div>
-            
-            <!-- Formulário incorporado -->
-            <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" width="100%" height="550" frameborder="0">Carregando…</iframe>
+        <!-- BANNER DE CONTATO DIRETO -->
+        <div class="contact-banner">
+            <h3>Pronto para começar?</h3>
+            <p>Escolha a melhor forma de contato e receba seu orçamento em até 24h</p>
+            <div class="contact-banner-buttons">
+                <a href="https://wa.me/5531984987116" class="btn btn-outline btn-small" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WHATSAPP
+                </a>
+                <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" class="btn btn-outline btn-small" target="_blank">
+                    <i class="fas fa-edit"></i> FORMULÁRIO
+                </a>
+                <a href="mailto:datadshsolucoes@gmail.com" class="btn btn-outline btn-small">
+                    <i class="fas fa-envelope"></i> E-MAIL
+                </a>
             </div>
         </div>
     </main>
