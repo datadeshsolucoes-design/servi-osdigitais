@@ -22,6 +22,7 @@
             --secondary: #10b981;
             --secondary-dark: #0d8f6e;
             --accent: #f59e0b;
+            --accent-dark: #d97706;
             --dark: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
@@ -47,8 +48,8 @@
         .header {
             background: linear-gradient(135deg, #ffffff 0%, #f9fafc 100%);
             border-bottom: 1px solid var(--border);
-            padding: 2rem 0 1rem;
-            margin-bottom: 2rem;
+            padding: 2rem 0 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .header-content {
@@ -77,13 +78,56 @@
             margin: 1rem auto;
         }
 
-        /* Banner de Lançamento */
+        /* Botões de ação no cabeçalho */
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.5rem 0 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-header {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-header-wa {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-header-wa:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-header-form {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-header-form:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Banner de Lançamento - REDUZIDO */
         .launch-banner {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
             border-radius: var(--radius);
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -108,114 +152,73 @@
         .launch-tag {
             background: var(--accent);
             color: white;
-            padding: 0.3rem 1.5rem;
+            padding: 0.2rem 1.2rem;
             border-radius: 30px;
             display: inline-block;
             font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
             position: relative;
             z-index: 2;
         }
 
         .launch-title {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             position: relative;
             z-index: 2;
-        }
-
-        .launch-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .launch-timer {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .timer-item {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 1rem 1.5rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .timer-number {
-            font-size: 2rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .timer-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
         }
 
         .launch-price {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
             position: relative;
             z-index: 2;
         }
 
-        .launch-price small {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
         .launch-old-price {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: rgba(255,255,255,0.5);
             text-decoration: line-through;
-            margin-right: 1rem;
+            margin-right: 0.8rem;
         }
 
-        /* Cards de contato */
+        /* Cards de contato - REDUZIDOS */
         .contact-strip {
             background: var(--light);
             border-radius: 60px;
-            padding: 0.8rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             display: inline-flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin: 2rem auto;
+            margin: 1rem auto;
             border: 1px solid var(--border);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
             color: var(--dark);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .contact-item i {
             color: var(--secondary);
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         /* Seções */
         .section-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
-            margin: 3rem 0 2rem;
+            margin: 2.5rem 0 1.5rem;
             text-align: center;
             position: relative;
         }
@@ -223,96 +226,86 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: var(--secondary);
-            margin: 1rem auto 0;
+            margin: 0.8rem auto 0;
             border-radius: 2px;
         }
 
         /* Grid de serviços */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
         }
 
         .service-card {
             background: white;
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.8rem;
+            padding: 1.2rem;
             transition: all 0.3s;
             position: relative;
         }
 
         .service-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow);
             border-color: var(--secondary);
         }
 
         .service-tag {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--accent);
-            color: white;
-            padding: 0.2rem 1rem;
+            top: 0.8rem;
+            right: 0.8rem;
+            padding: 0.2rem 0.8rem;
             border-radius: 20px;
             font-size: 0.7rem;
             font-weight: 700;
+            color: white;
         }
 
-        .service-popular {
-            position: absolute;
-            top: -10px;
-            left: 1rem;
-            background: var(--secondary);
-            color: white;
-            padding: 0.3rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
-        }
+        .tag-curriculo { background: var(--secondary); }
+        .tag-portfolio { background: var(--primary); }
+        .tag-ofertas { background: var(--accent); }
 
         .service-icon {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--secondary);
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
         }
 
         .service-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
         .service-desc {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
         .service-price {
             display: flex;
             align-items: baseline;
-            gap: 0.8rem;
-            margin: 1.5rem 0 1rem;
+            gap: 0.5rem;
+            margin: 1rem 0 0.8rem;
         }
 
         .price-current {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--dark);
         }
 
         .price-old {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--gray);
             text-decoration: line-through;
         }
@@ -320,109 +313,91 @@
         .price-save {
             background: #fee2e2;
             color: #ef4444;
-            padding: 0.2rem 0.8rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 700;
         }
 
-        /* Cards de pacotes */
+        /* Cards de pacotes - REDUZIDOS */
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .package-card {
             background: white;
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             transition: all 0.3s;
             position: relative;
         }
 
         .package-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow);
         }
 
         .package-card.popular {
             border: 2px solid var(--secondary);
-            transform: scale(1.05);
+            transform: scale(1.02);
             box-shadow: var(--shadow);
         }
 
         .popular-badge {
             position: absolute;
-            top: -12px;
+            top: -10px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--secondary);
             color: white;
-            padding: 0.3rem 2rem;
+            padding: 0.2rem 1.5rem;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 700;
         }
 
         .package-name {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
         .package-price {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--dark);
-            margin: 1rem 0;
+            margin: 0.8rem 0;
         }
 
         .package-price small {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--gray);
             font-weight: 400;
         }
 
         .package-old-price {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--gray);
             text-decoration: line-through;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-features {
-            list-style: none;
-            margin: 1.5rem 0;
-            text-align: left;
-        }
-
-        .package-features li {
-            margin: 0.8rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .package-features i {
-            color: var(--secondary);
         }
 
         /* Botões */
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 30px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
@@ -459,42 +434,43 @@
             transform: translateY(-2px);
         }
 
-        .btn-large {
-            padding: 1rem 3rem;
-            font-size: 1.1rem;
+        .btn-small {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
         }
 
         /* Seção de contato */
         .contact-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
         }
 
         .contact-info {
             background: var(--light);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: var(--radius);
         }
 
         .contact-info h3 {
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
         .contact-info p {
-            margin: 1rem 0;
+            margin: 0.8rem 0;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
+            font-size: 0.95rem;
         }
 
         .contact-info i {
             color: var(--secondary);
-            font-size: 1.2rem;
-            width: 24px;
+            font-size: 1.1rem;
+            width: 20px;
         }
 
         .form-container {
@@ -502,7 +478,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
-            height: 600px;
+            height: 550px;
         }
 
         .form-container iframe {
@@ -515,20 +491,21 @@
         .footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 0;
-            margin-top: 4rem;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
         }
 
         .footer a {
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         .footer a:hover {
@@ -537,8 +514,8 @@
 
         .footer .logo {
             color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Responsividade */
@@ -549,28 +526,30 @@
             
             .contact-strip {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.8rem;
                 border-radius: 20px;
             }
             
             .launch-title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .launch-price {
-                font-size: 2rem;
-            }
-            
-            .timer-item {
-                padding: 0.8rem 1rem;
-            }
-            
-            .timer-number {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .package-card.popular {
                 transform: none;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-header {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -583,53 +562,48 @@
                 <h1 class="logo">Data<span>Desh</span></h1>
                 <p class="slogan">Soluções digitais inteligentes para impulsionar sua carreira e negócio</p>
                 
+                <!-- Botões de ação no cabeçalho -->
+                <div class="header-buttons">
+                    <a href="https://wa.me/5531984987116" class="btn-header btn-header-wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i> FALE NO WHATSAPP
+                    </a>
+                    <a href="#contato" class="btn-header btn-header-form">
+                        <i class="fas fa-edit"></i> PREENCHER FORMULÁRIO
+                    </a>
+                </div>
+                
                 <!-- Contato direto -->
                 <div class="contact-strip">
                     <a href="mailto:datadshsolucoes@gmail.com" class="contact-item">
                         <i class="fas fa-envelope"></i>
                         datadshsolucoes@gmail.com
                     </a>
-                    <a href="https://wa.me/5531984987116" class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        (31) 98498-7116
-                    </a>
+                    <span class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        Seg-Sex 9h-18h
+                    </span>
                 </div>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- BANNER DE LANÇAMENTO -->
+        <!-- BANNER DE LANÇAMENTO (REDUZIDO) -->
         <div class="launch-banner">
             <div class="launch-tag">🔥 PROMOÇÃO DE LANÇAMENTO</div>
-            <h2 class="launch-title">Estamos começando!</h2>
-            <p class="launch-subtitle">Preços especiais para os primeiros clientes. Aproveite antes que acabem as vagas!</p>
-            
-            <!-- Timer fictício (você pode ajustar) -->
-            <div class="launch-timer">
-                <div class="timer-item">
-                    <div class="timer-number">15</div>
-                    <div class="timer-label">dias</div>
-                </div>
-                <div class="timer-item">
-                    <div class="timer-number">08</div>
-                    <div class="timer-label">horas</div>
-                </div>
-                <div class="timer-item">
-                    <div class="timer-number">24</div>
-                    <div class="timer-label">min</div>
-                </div>
+            <h2 class="launch-title">Comece com tudo!</h2>
+            <div class="launch-price">
+                <span class="launch-old-price">R$ 850</span>
+                <span>R$ 297</span>
             </div>
-            
-            <p style="font-size: 1.1rem; margin-bottom: 1rem;">Economize até <strong>70%</strong> comparado ao mercado!</p>
-            
-            <a href="#contato" class="btn btn-outline btn-large" style="border-color: white; color: white;">
+            <p style="font-size: 0.95rem; margin-bottom: 1rem;">KIT COMPLETO: Currículo + Portfólio</p>
+            <a href="#contato" class="btn btn-outline btn-small" style="border-color: white; color: white;">
                 <i class="fas fa-gift"></i> GARANTIR OFERTA
             </a>
         </div>
 
-        <!-- PACOTES PRINCIPAIS -->
-        <h2 class="section-title">Escolha o melhor pacote para você</h2>
+        <!-- PACOTES PRINCIPAIS (REDUZIDOS) -->
+        <h2 class="section-title">Pacotes especiais</h2>
         
         <div class="packages-grid">
             <!-- Pacote Start -->
@@ -637,12 +611,8 @@
                 <h3 class="package-name">START</h3>
                 <div class="package-old-price">R$ 600</div>
                 <div class="package-price">R$ 247</div>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> Currículo Profissional</li>
-                    <li><i class="fas fa-check-circle"></i> Landing Page básica</li>
-                    <li><i class="fas fa-check-circle"></i> 30 dias de suporte</li>
-                </ul>
-                <a href="#contato" class="btn btn-primary">Quero este pacote</a>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Currículo + Landing Page</p>
+                <a href="#contato" class="btn btn-primary btn-small">Quero este</a>
             </div>
 
             <!-- Pacote Profissional (Destaque) -->
@@ -651,13 +621,8 @@
                 <h3 class="package-name">PROFISSIONAL</h3>
                 <div class="package-old-price">R$ 850</div>
                 <div class="package-price">R$ 350</div>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> Currículo Profissional</li>
-                    <li><i class="fas fa-check-circle"></i> Portfólio Completo</li>
-                    <li><i class="fas fa-check-circle"></i> Landing Page</li>
-                    <li><i class="fas fa-check-circle"></i> 60 dias de suporte</li>
-                </ul>
-                <a href="#contato" class="btn btn-success">Quero este pacote</a>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Currículo + Portfólio + Landing</p>
+                <a href="#contato" class="btn btn-success btn-small">Quero este</a>
             </div>
 
             <!-- Pacote Premium -->
@@ -665,61 +630,55 @@
                 <h3 class="package-name">PREMIUM</h3>
                 <div class="package-old-price">R$ 1.500</div>
                 <div class="package-price">R$ 597</div>
-                <ul class="package-features">
-                    <li><i class="fas fa-check-circle"></i> Currículo Profissional</li>
-                    <li><i class="fas fa-check-circle"></i> Portfólio Completo</li>
-                    <li><i class="fas fa-check-circle"></i> Site Institucional</li>
-                    <li><i class="fas fa-check-circle"></i> Dashboard Simples</li>
-                    <li><i class="fas fa-check-circle"></i> 90 dias de suporte</li>
-                </ul>
-                <a href="#contato" class="btn btn-primary">Quero este pacote</a>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Site completo + Dashboard</p>
+                <a href="#contato" class="btn btn-primary btn-small">Quero este</a>
             </div>
         </div>
 
-        <!-- KIT COMPLETO EM DESTAQUE -->
-        <div style="background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); color: white; border-radius: var(--radius); padding: 2rem; margin: 2rem 0; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <span style="background: rgba(255,255,255,0.2); padding: 0.3rem 1.5rem; border-radius: 30px; font-weight: 700; margin-bottom: 1rem;">🔥 OFERTA IMPERDÍVEL</span>
-            <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">KIT COMPLETO</h3>
-            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Currículo Profissional + Portfólio Completo</p>
-            <div style="display: flex; align-items: baseline; gap: 1rem; margin: 1rem 0;">
-                <span style="font-size: 1.5rem; text-decoration: line-through; opacity: 0.7;">R$ 850</span>
-                <span style="font-size: 3rem; font-weight: 800;">R$ 297</span>
-            </div>
-            <p style="margin-bottom: 1.5rem;">Economia de R$ 553! 🔥</p>
-            <a href="#contato" class="btn btn-outline btn-large" style="border-color: white; color: white; background: rgba(255,255,255,0.1);">
-                <i class="fas fa-gift"></i> QUERO ESSE KIT
-            </a>
-        </div>
-
-        <!-- TODOS OS SERVIÇOS -->
-        <h2 class="section-title">Todos os serviços</h2>
+        <!-- TODOS OS SERVIÇOS (MAIS BARATOS PRIMEIRO) -->
+        <h2 class="section-title">Serviços individuais</h2>
         
         <div class="services-grid">
-            <!-- Currículo -->
+            <!-- CURRÍCULO - DESTAQUE VERDE -->
             <div class="service-card">
-                <span class="service-tag">POPULAR</span>
+                <span class="service-tag tag-curriculo">MAIS ACESSADO</span>
                 <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                 <h3 class="service-title">Currículo Profissional</h3>
-                <p class="service-desc">Currículo em HTML responsivo, moderno, 2 colunas, timeline, barras de progresso.</p>
+                <p class="service-desc">Currículo em HTML moderno, responsivo, pronto para impressionar recrutadores.</p>
                 <div class="service-price">
                     <span class="price-old">R$ 350</span>
                     <span class="price-current">R$ 97</span>
                     <span class="price-save">-72%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
             </div>
 
-            <!-- Portfólio -->
+            <!-- PORTFÓLIO - DESTAQUE AZUL -->
             <div class="service-card">
+                <span class="service-tag tag-portfolio">DESTAQUE</span>
                 <div class="service-icon"><i class="fas fa-briefcase"></i></div>
                 <h3 class="service-title">Portfólio Profissional</h3>
-                <p class="service-desc">Site completo com header personalizado, cards, seções e análise SWOT.</p>
+                <p class="service-desc">Site completo para mostrar seus trabalhos e habilidades.</p>
                 <div class="service-price">
                     <span class="price-old">R$ 500</span>
                     <span class="price-current">R$ 147</span>
                     <span class="price-save">-70%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- PÁGINA DE OFERTAS - DESTAQUE LARANJA -->
+            <div class="service-card">
+                <span class="service-tag tag-ofertas">🔥 OFERTAS</span>
+                <div class="service-icon"><i class="fas fa-tags"></i></div>
+                <h3 class="service-title">Página de Ofertas</h3>
+                <p class="service-desc">Crie promoções relâmpago, contadores regressivos e páginas de vendas.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 600</span>
+                    <span class="price-current">R$ 147</span>
+                    <span class="price-save">-75%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
             </div>
 
             <!-- Landing Page -->
@@ -732,102 +691,10 @@
                     <span class="price-current">R$ 197</span>
                     <span class="price-save">-67%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
             </div>
 
-            <!-- Página de Vagas -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                <h3 class="service-title">Página de Vagas</h3>
-                <p class="service-desc">Listagem de empregos com busca, filtros e candidatura via formulário.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 800</span>
-                    <span class="price-current">R$ 247</span>
-                    <span class="price-save">-69%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Dashboard -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
-                <h3 class="service-title">Dashboard Interativo</h3>
-                <p class="service-desc">Painel com gráficos dinâmicos e dados em tempo real.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 1.000</span>
-                    <span class="price-current">R$ 297</span>
-                    <span class="price-save">-70%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Cardápio Digital -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                <h3 class="service-title">Cardápio Digital</h3>
-                <p class="service-desc">Para restaurantes, lanchonetes e food trucks.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 600</span>
-                    <span class="price-current">R$ 197</span>
-                    <span class="price-save">-67%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Catálogo de Produtos -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-store"></i></div>
-                <h3 class="service-title">Catálogo de Produtos</h3>
-                <p class="service-desc">Mostre seus produtos com fotos, preços e contato direto.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 600</span>
-                    <span class="price-current">R$ 197</span>
-                    <span class="price-save">-67%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Página de Notícias -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-newspaper"></i></div>
-                <h3 class="service-title">Página de Notícias</h3>
-                <p class="service-desc">Site com seção de novidades e atualizações.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 800</span>
-                    <span class="price-current">R$ 247</span>
-                    <span class="price-save">-69%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Chatbot com IA -->
-            <div class="service-card">
-                <span class="service-tag">NOVO</span>
-                <div class="service-icon"><i class="fas fa-robot"></i></div>
-                <h3 class="service-title">Chatbot com IA</h3>
-                <p class="service-desc">Atendimento automático 24h para tirar dúvidas dos clientes.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 1.000</span>
-                    <span class="price-current">R$ 297</span>
-                    <span class="price-save">-70%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Planilhas Personalizadas -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-table"></i></div>
-                <h3 class="service-title">Planilhas Personalizadas</h3>
-                <p class="service-desc">Excel/Google Sheets com fórmulas, validações e painéis.</p>
-                <div class="service-price">
-                    <span class="price-old">R$ 200</span>
-                    <span class="price-current">R$ 60</span>
-                    <span class="price-save">-70%</span>
-                </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
-            </div>
-
-            <!-- Transformação de Documentos -->
+            <!-- Transformação de Docs -->
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-file-pdf"></i></div>
                 <h3 class="service-title">Transformação de Docs</h3>
@@ -837,7 +704,7 @@
                     <span class="price-current">R$ 30</span>
                     <span class="price-save">-62%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
             </div>
 
             <!-- Página de Lançamento -->
@@ -850,7 +717,86 @@
                     <span class="price-current">R$ 60</span>
                     <span class="price-save">-70%</span>
                 </div>
-                <a href="#contato" class="btn btn-primary" style="width: 100%;">Solicitar</a>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- Catálogo de Produtos -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h3 class="service-title">Catálogo de Produtos</h3>
+                <p class="service-desc">Mostre seus produtos com fotos, preços e contato direto.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 600</span>
+                    <span class="price-current">R$ 197</span>
+                    <span class="price-save">-67%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- Cardápio Digital -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                <h3 class="service-title">Cardápio Digital</h3>
+                <p class="service-desc">Para restaurantes, lanchonetes e food trucks.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 600</span>
+                    <span class="price-current">R$ 197</span>
+                    <span class="price-save">-67%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- Página de Vagas -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3 class="service-title">Página de Vagas</h3>
+                <p class="service-desc">Listagem de empregos com busca e candidatura.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 800</span>
+                    <span class="price-current">R$ 247</span>
+                    <span class="price-save">-69%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3 class="service-title">Dashboard Interativo</h3>
+                <p class="service-desc">Painel com gráficos dinâmicos e dados em tempo real.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 1.000</span>
+                    <span class="price-current">R$ 297</span>
+                    <span class="price-save">-70%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- Página de Notícias -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-newspaper"></i></div>
+                <h3 class="service-title">Página de Notícias</h3>
+                <p class="service-desc">Site com seção de novidades e atualizações.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 800</span>
+                    <span class="price-current">R$ 247</span>
+                    <span class="price-save">-69%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
+            </div>
+
+            <!-- Chatbot com IA -->
+            <div class="service-card">
+                <span class="service-tag tag-ofertas">NOVO</span>
+                <div class="service-icon"><i class="fas fa-robot"></i></div>
+                <h3 class="service-title">Chatbot com IA</h3>
+                <p class="service-desc">Atendimento automático 24h para tirar dúvidas dos clientes.</p>
+                <div class="service-price">
+                    <span class="price-old">R$ 1.000</span>
+                    <span class="price-current">R$ 297</span>
+                    <span class="price-save">-70%</span>
+                </div>
+                <a href="#contato" class="btn btn-primary btn-small" style="width: 100%;">Solicitar</a>
             </div>
         </div>
 
@@ -865,7 +811,7 @@
                 <p><i class="fas fa-envelope"></i> datadshsolucoes@gmail.com</p>
                 <p><i class="fas fa-clock"></i> Segunda a Sexta, 9h às 18h</p>
                 
-                <hr style="margin: 2rem 0; border-color: var(--border);">
+                <hr style="margin: 1.5rem 0; border-color: var(--border);">
                 
                 <h3>Por que escolher a DataDesh?</h3>
                 <p><i class="fas fa-check-circle"></i> Atendimento personalizado</p>
@@ -876,7 +822,7 @@
             
             <!-- Formulário incorporado -->
             <div class="form-container">
-                <iframe src="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" width="100%" height="700" frameborder="0">Carregando…</iframe>
+                <iframe src="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/preview" width="100%" height="550" frameborder="0">Carregando…</iframe>
             </div>
         </div>
     </main>
@@ -886,17 +832,23 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="logo" style="color: white; font-size: 1.8rem;">Data<span style="color: var(--secondary);">Desh</span></h3>
-                    <p style="margin: 1rem 0;">Soluções digitais que transformam ideias em resultados.</p>
+                    <h3 class="logo" style="color: white; font-size: 1.5rem;">Data<span style="color: var(--secondary);">Desh</span></h3>
+                    <p style="margin: 0.5rem 0; font-size: 0.85rem;">Soluções digitais que transformam.</p>
                 </div>
                 <div>
-                    <h4>Contato</h4>
+                    <h4 style="font-size: 1rem; margin-bottom: 0.8rem;">Contato</h4>
                     <p><a href="mailto:datadshsolucoes@gmail.com">datadshsolucoes@gmail.com</a></p>
                     <p><a href="https://wa.me/5531984987116">(31) 98498-7116</a></p>
                 </div>
                 <div>
-                    <h4>Horário</h4>
-                    <p>Segunda a Sexta</p>
-                    <p>9h às 18h</p>
+                    <h4 style="font-size: 1rem; margin-bottom: 0.8rem;">Horário</h4>
+                    <p style="font-size: 0.85rem;">Segunda a Sexta</p>
+                    <p style="font-size: 0.85rem;">9h às 18h</p>
                 </div>
-                <div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 1.5rem 0;">
+            <p style="text-align: center; font-size: 0.8rem;">© 2026 DataDesh Soluções Digitais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
