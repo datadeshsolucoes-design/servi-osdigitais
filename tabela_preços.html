@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Preços - DataDesh Soluções Digitais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #e0e0e0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #0066FF;
+            padding-bottom: 1rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #0066FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .header .contato {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #0066FF;
+        }
+
+        /* Seções */
+        .section {
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            background: #0066FF;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .section-title i {
+            margin-right: 0.5rem;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        th {
+            background: #F0F4FE;
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+        }
+
+        .price-promo {
+            color: #0066FF;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .price-market {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.8rem;
+        }
+
+        /* Pacotes */
+        .packages-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .package-card {
+            flex: 1;
+            min-width: 220px;
+            background: #F8FAFF;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .package-card h4 {
+            color: #0066FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0066FF;
+        }
+
+        .package-savings {
+            font-size: 0.7rem;
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        /* Resumo */
+        .resumo {
+            background: #F8FAFF;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0066FF;
+        }
+
+        .resumo h3 {
+            color: #0066FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .resumo ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .resumo li {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid #ddd;
+        }
+
+        /* Rodapé */
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .section-title {
+                background: #0066FF;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            th {
+                background: #F0F4FE;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 TABELA DE PREÇOS</h1>
+            <p>DataDesh Soluções Digitais</p>
+            <p class="contato">📞 (31) 98498-7116 | ✉️ datadshsolucoes@gmail.com</p>
+            <p>💳 Pagamento: 50% sinal / 50% na entrega | 📦 Entrega em 5-7 dias úteis</p>
+        </div>
+
+        <!-- WEB & SITES -->
+        <div class="section">
+            <div class="section-title">🌐 WEB & SITES</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mini-site GitHub Pages (1 página)</td><td>Página única responsiva</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
+                    <tr><td>Mini-site com botões para links</td><td>Link in Bio profissional</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
+                    <tr><td>Páginas HTML (cardápio, ofertas)</td><td>Cardápio digital interativo</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>7 dias</td></tr>
+                    <tr><td>Site automatizado (vagas 24h)</td><td>Buscador de vagas</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
+                    <tr><td>Site agregador de notícias</td><td>Agregador de feeds RSS</td><td><span class="price-promo">R$ 600</span> <span class="price-market">R$ 900</span></td><td>5 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DASHBOARDS -->
+        <div class="section">
+            <div class="section-title">📊 DASHBOARDS & AUTOMAÇÃO</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Painel análise dados (simples) + Sheets</td><td>Dashboard básico com gráficos</td><td><span class="price-promo">R$ 350</span> <span class="price-market">R$ 600</span></td><td>7 dias</td></tr>
+                    <tr><td>Painel análise dados (intermediário)</td><td>Dashboard com filtros e métricas</td><td><span class="price-promo">R$ 500</span> <span class="price-market">R$ 800</span></td><td>7 dias</td></tr>
+                    <tr><td>Painel com agenda eletrônica</td><td>Agendamento de clientes</td><td><span class="price-promo">R$ 300</span> <span class="price-market">R$ 500</span></td><td>7 dias</td></tr>
+                    <tr><td>Criação de fluxos de trabalho e automação</td><td>Automação de processos</td><td><span class="price-promo">R$ 400</span> <span class="price-market">R$ 600</span></td><td>7 dias</td></tr>
+                    <tr><td>Painéis com gráficos (Dashboards)</td><td>Dashboard personalizado com KPIs</td><td><span class="price-promo">R$ 450</span> <span class="price-market">R$ 700</span></td><td>7 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DOCS & CURRÍCULOS -->
+        <div class="section">
+            <div class="section-title">📄 DOCS & CURRÍCULOS</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Currículo digital + GitHub Pages</td><td>Currículo online profissional</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>5 dias</td></tr>
+                    <tr><td>Criação de eBooks em PDF</td><td>Layout e exportação de eBook</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
+                    <tr><td>Criação de resumos em PDF</td><td>Resumo organizado em PDF</td><td><span class="price-promo">R$ 50</span> <span class="price-market">R$ 90</span></td><td>5 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ARTES & DESIGN -->
+        <div class="section">
+            <div class="section-title">🎨 ARTES & DESIGN</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Cartão de visita em HTML</td><td>Cartão digital interativo</td><td><span class="price-promo">R$ 50</span> <span class="price-market">R$ 90</span></td><td>5 dias</td></tr>
+                    <tr><td>Convite digital + Google Forms</td><td>Convite online com RSVP</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>5 dias</td></tr>
+                    <tr><td>Banner/post social (arte + legenda)</td><td>Post para redes sociais</td><td><span class="price-promo">R$ 45</span> <span class="price-market">R$ 80</span></td><td>5 dias</td></tr>
+                    <tr><td>Pacote de posts (5 artes + legendas)</td><td>5 posts para 1 semana</td><td><span class="price-promo">R$ 180</span> <span class="price-market">R$ 300</span></td><td>7 dias</td></tr>
+                    <tr><td>Criação de logotipo simples (vetorial)</td><td>Logo básico em vetor</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>7 dias</td></tr>
+                    <tr><td>Roteiro para vídeo curto (Reels/TikTok)</td><td>Roteiro otimizado</td><td><span class="price-promo">R$ 90</span> <span class="price-market">R$ 150</span></td><td>5 dias</td></tr>
+                    <tr><td>Pacote de banners promo (3 modelos)</td><td>3 banners promocionais</td><td><span class="price-promo">R$ 120</span> <span class="price-market">R$ 200</span></td><td>5 dias</td></tr>
+                    <tr><td>Identidade visual básica</td><td>Mini-branding</td><td><span class="price-promo">R$ 250</span> <span class="price-market">R$ 400</span></td><td>7 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TECH & SUPORTE -->
+        <div class="section">
+            <div class="section-title">🛠️ TECH & SUPORTE</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Limpeza de PC/notebook (remoto)</td><td>Otimização remota</td><td><span class="price-promo">R$ 120</span> <span class="price-market">R$ 200</span></td><td>5 dias</td></tr>
+                    <tr><td>Limpeza de celular Android</td><td>Otimização de armazenamento</td><td><span class="price-promo">R$ 60</span> <span class="price-market">R$ 100</span></td><td>5 dias</td></tr>
+                    <tr><td>Backup automático via Google Drive</td><td>Configuração de backup</td><td><span class="price-promo">R$ 100</span> <span class="price-market">R$ 160</span></td><td>5 dias</td></tr>
+                    <tr><td>Diagnóstico de lentidão + relatório</td><td>Análise de desempenho</td><td><span class="price-promo">R$ 90</span> <span class="price-market">R$ 150</span></td><td>5 dias</td></tr>
+                    <tr><td>Instalação remota de softwares básicos</td><td>Instalação de programas</td><td><span class="price-promo">R$ 80</span> <span class="price-market">R$ 130</span></td><td>5 dias</td></tr>
+                    <tr><td>Compactar fotos no Drive</td><td>Compressão de imagens</td><td><span class="price-promo">R$ 50</span> <span class="price-market">R$ 80</span></td><td>5 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ADMIN & ORGANIZAÇÃO -->
+        <div class="section">
+            <div class="section-title">📋 ADMIN & ORGANIZAÇÃO</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Pesquisa científica (ABNT)</td><td>Formatação ABNT</td><td><span class="price-promo">R$ 300</span> <span class="price-market">R$ 500</span></td><td>7 dias</td></tr>
+                    <tr><td>Formulário Google Forms + coleta</td><td>Formulário com lógica</td><td><span class="price-promo">R$ 70</span> <span class="price-market">R$ 120</span></td><td>5 dias</td></tr>
+                    <tr><td>Edição de arquivos, relatórios e rotinas</td><td>Sob consulta</td><td><strong>Sob consulta</strong></td><td>5 dias</td></tr>
+                    <tr><td>Organização de arquivos e pastas</td><td>Reestruturação lógica</td><td><span class="price-promo">R$ 120</span> <span class="price-market">R$ 200</span></td><td>5 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CONSULTORIA & APRESENTAÇÕES -->
+        <div class="section">
+            <div class="section-title">🎤 CONSULTORIA & APRESENTAÇÕES</div>
+            <table>
+                <thead>
+                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Apresentações / Slides (até 20 slides)</td><td>PPT ou Google Slides</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>5 dias</td></tr>
+                    <tr><td>Análise de sites e redes sociais</td><td>Auditoria + relatório</td><td><span class="price-promo">R$ 300</span> <span class="price-market">R$ 500</span></td><td>7 dias</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PACOTES PROMOCIONAIS -->
+        <div class="section">
+            <div class="section-title">🎁 PACOTES PROMOCIONAIS</div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h4>Pacote Start</h4>
+                    <p>Currículo Digital + Landing Page</p>
+                    <div class="package-price">R$ 247</div>
+                    <div class="package-savings">Economize 45%</div>
+                    <small>Mercado: R$ 450</small>
+                </div>
+                <div class="package-card">
+                    <h4>Pacote Profissional</h4>
+                    <p>Currículo + Portfólio + Landing</p>
+                    <div class="package-price">R$ 350</div>
+                    <div class="package-savings">Economize 46%</div>
+                    <small>Mercado: R$ 650</small>
+                </div>
+                <div class="package-card">
+                    <h4>Pacote Premium</h4>
+                    <p>Site + Dashboard + Identidade</p>
+                    <div class="package-price">R$ 597</div>
+                    <div class="package-savings">Economize 50%</div>
+                    <small>Mercado: R$ 1.200</small>
+                </div>
+                <div class="package-card">
+                    <h4>Kit Completo</h4>
+                    <p>Currículo + Portfólio + PDF</p>
+                    <div class="package-price">R$ 297</div>
+                    <div class="package-savings">Economize 46%</div>
+                    <small>Mercado: R$ 550</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESUMO PARA FECHAR NEGÓCIO -->
+        <div class="resumo">
+            <h3>📝 RESUMO PARA FECHAR NEGÓCIO</h3>
+            <ul>
+                <li>📄 Currículo Digital: R$ 70</li>
+                <li>🎨 Portfólio Online: R$ 100</li>
+                <li>🌐 Site Básico (1 página): R$ 200</li>
+                <li>🚀 Site Profissional (5 páginas): R$ 697</li>
+                <li>📊 Dashboard Simples: R$ 350</li>
+                <li>📈 Dashboard Avançado: R$ 500</li>
+                <li>🎁 Pacote Start: R$ 247</li>
+                <li>⭐ Pacote Profissional: R$ 350</li>
+                <li>👑 Pacote Premium: R$ 597</li>
+                <li>📦 Kit Completo: R$ 297</li>
+            </ul>
+            <p style="margin-top: 0.8rem;"><strong>💰 CONDIÇÕES:</strong> 50% de sinal / 50% na entrega | 5-7 dias úteis | 30 dias de suporte | Código fonte entregue</p>
+            <p style="margin-top: 0.5rem;"><strong>⚠️ Vagas limitadas por semana! Garanta já o seu.</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>DataDesh Soluções Digitais | Ana Paula</p>
+            <p>📞 (31) 98498-7116 | ✉️ datadshsolucoes@gmail.com</p>
+            <p>💳 PIX: datadshsolucoes@gmail.com</p>
+        </div>
+    </div>
+</body>
+</html>
