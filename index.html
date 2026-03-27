@@ -59,7 +59,7 @@
     }
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 20px;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -76,16 +76,31 @@
     .nav-btn {
       background: #0B5E42;
       color: white !important;
-      padding: 8px 20px;
+      padding: 8px 18px;
       border-radius: 40px;
+    }
+    .nav-btn-outline {
+      border: 1px solid #0B5E42;
+      color: #0B5E42 !important;
+      padding: 8px 18px;
+      border-radius: 40px;
+    }
+    .nav-btn-outline:hover {
+      background: #0B5E42;
+      color: white !important;
     }
     .nav-btn:hover {
       background: #064e3b;
     }
+    @media (max-width: 900px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 11px; }
+      .nav-btn, .nav-btn-outline { padding: 6px 12px; }
+    }
     @media (max-width: 768px) {
-      .nav-links { gap: 15px; }
-      .nav-links a { font-size: 12px; }
-      .nav-btn { padding: 6px 14px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 10px; }
+      .nav-btn, .nav-btn-outline { padding: 5px 10px; }
     }
 
     /* Botão flutuante WhatsApp */
@@ -112,7 +127,7 @@
       background: #128C7E;
     }
 
-    /* HERO - FRASE DE IMPACTO */
+    /* HERO */
     .hero {
       background: linear-gradient(135deg, #0B5E42 0%, #0A3B2A 100%);
       color: white;
@@ -181,7 +196,7 @@
       opacity: 0.8;
     }
 
-    /* SEÇÃO QUEM SOU EU - COM FOTO */
+    /* SEÇÃO QUEM SOU EU */
     .quem-sou {
       padding: 70px 0;
       background: #F9FAFB;
@@ -255,7 +270,7 @@
       .contatos { justify-content: center; }
     }
 
-    /* PROJETOS REAIS - PORTFÓLIO */
+    /* PROJETOS REAIS - COM FOTOS E REEL */
     .projetos {
       padding: 70px 0;
       background: white;
@@ -277,7 +292,7 @@
     }
     .projetos-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
     .projeto-card {
@@ -293,14 +308,29 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
     .projeto-img {
-      height: 180px;
-      background: linear-gradient(135deg, #0B5E42, #F59E0B);
+      height: 220px;
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
-    .projeto-img i {
-      font-size: 60px;
+    .projeto-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .projeto-card:hover .projeto-img-overlay {
+      opacity: 1;
+    }
+    .projeto-img-overlay i {
+      font-size: 48px;
       color: white;
     }
     .projeto-info {
@@ -635,6 +665,7 @@
       <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
       <a href="#depoimentos">Depoimentos</a>
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="nav-btn-outline" target="_blank"><i class="fas fa-tag"></i> Preços</a>
       <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
       <a href="https://wa.me/5531984987116" class="nav-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
@@ -650,7 +681,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-badge">
-      <i class="fas fa-chart-line"></i> +27 dashboards entregues | Especialista em pequenos negócios
+      <i class="fas fa-chart-line"></i> +27 projetos entregues | Especialista em pequenos negócios
     </div>
     <h1>Crio sites que ajudam seu negócio a <span>conseguir clientes todos os dias</span></h1>
     <p>Sites profissionais e dashboards interativos que realmente trazem resultados. Foco em conversão e vendas.</p>
@@ -689,39 +720,43 @@
   </div>
 </section>
 
-<!-- PROJETOS REAIS -->
+<!-- PROJETOS REAIS - 2 PROJETOS COM FOTOS E REEL -->
 <section id="projetos" class="projetos">
   <div class="container">
     <h2 class="section-title">Projetos <span>reais</span></h2>
-    <p class="section-subtitle">Veja o que já entreguei para clientes reais</p>
+    <p class="section-subtitle">Veja na prática o que já entreguei</p>
     <div class="projetos-grid">
+      <!-- Projeto 1: Dashboard de Saúde -->
       <div class="projeto-card">
-        <div class="projeto-img"><i class="fas fa-chart-line"></i></div>
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/area%20de%20trabalho.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fas fa-chart-line"></i>
+          </div>
+        </div>
         <div class="projeto-info">
           <h3>Dashboard - Gestão da Saúde</h3>
-          <p>Painel com 12 gráficos interativos para gestão de filas de espera.</p>
+          <p>Painel completo com gráficos interativos, filtros dinâmicos e dados em tempo real para gestão de filas de espera.</p>
           <span class="projeto-resultado">-40% tempo de análise</span>
-          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
+          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto completo →</a>
         </div>
       </div>
+      <!-- Projeto 2: Dashboard Interativo + Reel do Instagram -->
       <div class="projeto-card">
-        <div class="projeto-img"><i class="fas fa-store"></i></div>
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
         <div class="projeto-info">
-          <h3>Landing Page - Loja Online</h3>
-          <p>Site profissional para venda de produtos, com WhatsApp integrado.</p>
-          <span class="projeto-resultado">+35% vendas no primeiro mês</span>
-          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
+          <h3>Dashboards Interativos</h3>
+          <p>Gráficos dinâmicos sincronizados com tabelas, filtros avançados e visualizações profissionais para tomada de decisão.</p>
+          <span class="projeto-resultado">+35% eficiência operacional</span>
+          <a href="https://www.instagram.com/reel/DWMHSjpRrvR/" class="projeto-link" target="_blank">Ver demonstração no Instagram →</a>
         </div>
       </div>
-      <div class="projeto-card">
-        <div class="projeto-img"><i class="fas fa-file-alt"></i></div>
-        <div class="projeto-info">
-          <h3>Currículo Digital</h3>
-          <p>Página profissional para divulgação de portfólio e serviços.</p>
-          <span class="projeto-resultado">3 propostas em 15 dias</span>
-          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto →</a>
-        </div>
-      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="https://aninhatata.github.io/portifolio/" class="btn-whatsapp" style="background: #0B5E42; font-size: 14px; padding: 12px 25px;" target="_blank">Ver portfólio completo (27 projetos) →</a>
     </div>
   </div>
 </section>
