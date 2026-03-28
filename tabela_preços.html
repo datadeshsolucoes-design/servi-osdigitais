@@ -1,389 +1,1046 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Tabela de Preços - DataDesh Soluções Digitais</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>DataDesh | Crio sites que ajudam seu negócio a conseguir clientes todos os dias</title>
+  <meta name="description" content="Crio sites profissionais e dashboards interativos que realmente trazem resultados. +27 projetos entregues. Especialista em soluções para pequenos negócios. Prazo de entrega: 15 dias.">
+  <meta name="author" content="Ana - DataDesh">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #e0e0e0;
-            padding: 2rem;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1F2937;
+      line-height: 1.5;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-radius: 8px;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* Cabeçalho */
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid #0066FF;
-            padding-bottom: 1rem;
-        }
+    /* NAVEGAÇÃO SUPERIOR */
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0B5E42;
+      text-decoration: none;
+    }
+    .logo span {
+      color: #F59E0B;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4B5563;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 14px;
+    }
+    .nav-links a:hover {
+      color: #0B5E42;
+    }
+    .nav-btn {
+      background: #0B5E42;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 40px;
+    }
+    .nav-btn-outline {
+      border: 1px solid #0B5E42;
+      color: #0B5E42 !important;
+      padding: 8px 18px;
+      border-radius: 40px;
+    }
+    .nav-btn-outline:hover {
+      background: #0B5E42;
+      color: white !important;
+    }
+    .nav-btn:hover {
+      background: #064e3b;
+    }
+    @media (max-width: 900px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 11px; }
+      .nav-btn, .nav-btn-outline { padding: 6px 12px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 10px; }
+      .nav-btn, .nav-btn-outline { padding: 5px 10px; }
+    }
 
-        .header h1 {
-            font-size: 2rem;
-            color: #0066FF;
-            margin-bottom: 0.5rem;
-        }
+    /* Botão flutuante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #128C7E;
+    }
 
-        .header p {
-            color: #555;
-            font-size: 0.9rem;
-        }
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0B5E42 0%, #0A3B2A 100%);
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 span {
+      color: #F59E0B;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #F59E0B;
+      color: white;
+      padding: 14px 35px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-whatsapp:hover {
+      background: #D97706;
+      transform: translateY(-2px);
+    }
+    .btn-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-left: 15px;
+    }
+    .btn-form:hover {
+      background: white;
+      color: #0B5E42;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+    }
+    .stat-label {
+      font-size: 13px;
+      opacity: 0.8;
+    }
 
-        .header .contato {
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: #0066FF;
-        }
+    /* SEÇÃO QUEM SOU EU */
+    .quem-sou {
+      padding: 70px 0;
+      background: #F9FAFB;
+    }
+    .quem-sou-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .foto {
+      text-align: center;
+    }
+    .foto-circle {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #0B5E42, #F59E0B);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .foto-circle i {
+      font-size: 100px;
+      color: white;
+    }
+    .quem-sou h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .quem-sou h2 span {
+      color: #0B5E42;
+    }
+    .quem-sou p {
+      color: #4B5563;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .contatos {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    .contato-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #1F2937;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #E5E7EB;
+      transition: all 0.2s;
+    }
+    .contato-item:hover {
+      border-color: #0B5E42;
+      transform: translateY(-2px);
+    }
+    .contato-item i {
+      color: #0B5E42;
+    }
+    @media (max-width: 768px) {
+      .quem-sou-grid { grid-template-columns: 1fr; text-align: center; }
+      .contatos { justify-content: center; }
+    }
 
-        /* Seções */
-        .section {
-            margin-bottom: 2rem;
-            page-break-inside: avoid;
-        }
+    /* PROJETOS REAIS - 5 PROJETOS */
+    .projetos {
+      padding: 70px 0;
+      background: white;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    .section-title span {
+      color: #0B5E42;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #6B7280;
+      margin-bottom: 50px;
+      font-size: 16px;
+    }
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .projeto-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #E5E7EB;
+      transition: all 0.3s;
+    }
+    .projeto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    .projeto-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .projeto-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .projeto-card:hover .projeto-img-overlay {
+      opacity: 1;
+    }
+    .projeto-img-overlay i {
+      font-size: 48px;
+      color: white;
+    }
+    .projeto-info {
+      padding: 20px;
+    }
+    .projeto-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .projeto-info p {
+      color: #6B7280;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .projeto-resultado {
+      display: inline-block;
+      background: #D1FAE5;
+      color: #0B5E42;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .projeto-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #0B5E42;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .projetos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .projetos-grid { grid-template-columns: 1fr; }
+    }
 
-        .section-title {
-            background: #0066FF;
-            color: white;
-            padding: 0.5rem 1rem;
-            margin: 1.5rem 0 1rem 0;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 5px;
-        }
+    /* CARDS PROMO */
+    .promocoes {
+      padding: 70px 0;
+      background: #F9FAFB;
+    }
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .promo-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #E5E7EB;
+      transition: all 0.3s;
+    }
+    .promo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+    .promo-badge {
+      background: #F59E0B;
+      color: white;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin: 15px 0 0 15px;
+    }
+    .promo-img {
+      text-align: center;
+      padding: 20px 0 10px;
+    }
+    .promo-img i {
+      font-size: 45px;
+      color: #0B5E42;
+    }
+    .promo-info {
+      padding: 0 20px 20px;
+      text-align: center;
+    }
+    .promo-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .promo-info p {
+      color: #6B7280;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+    .promo-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0B5E42;
+      margin-bottom: 15px;
+    }
+    .promo-old {
+      font-size: 14px;
+      text-decoration: line-through;
+      color: #9CA3AF;
+      margin-right: 8px;
+    }
+    .promo-btn {
+      display: block;
+      background: #0B5E42;
+      color: white;
+      padding: 10px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    .promo-btn:hover {
+      background: #064e3b;
+    }
+    @media (max-width: 900px) {
+      .promo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .promo-grid { grid-template-columns: 1fr; }
+    }
 
-        .section-title i {
-            margin-right: 0.5rem;
-        }
+    /* SERVIÇOS */
+    .servicos {
+      padding: 70px 0;
+      background: white;
+    }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .servico-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #E5E7EB;
+      transition: all 0.3s;
+    }
+    .servico-card:hover {
+      transform: translateY(-5px);
+      border-color: #0B5E42;
+    }
+    .servico-icon {
+      width: 60px;
+      height: 60px;
+      background: #D1FAE5;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .servico-icon i {
+      font-size: 28px;
+      color: #0B5E42;
+    }
+    .servico-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .servico-card p {
+      color: #6B7280;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .servico-link {
+      color: #0B5E42;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .prazo-badge {
+      display: inline-block;
+      background: #FEF3C7;
+      color: #D97706;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+      .servicos-grid { grid-template-columns: 1fr; }
+    }
 
-        /* Tabelas */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-        }
+    /* RESULTADOS */
+    .resultados {
+      padding: 70px 0;
+      background: #F9FAFB;
+      text-align: center;
+    }
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    .resultado-item {
+      text-align: center;
+    }
+    .resultado-numero {
+      font-size: 42px;
+      font-weight: 800;
+      color: #0B5E42;
+    }
+    .resultado-texto {
+      font-size: 14px;
+      color: #6B7280;
+    }
+    @media (max-width: 600px) {
+      .resultados-grid { grid-template-columns: 1fr; }
+    }
 
-        th {
-            background: #F0F4FE;
-            padding: 0.75rem;
-            text-align: left;
-            border: 1px solid #ddd;
-            font-weight: 700;
-        }
+    /* DEPOIMENTOS */
+    .depoimentos {
+      padding: 70px 0;
+      background: white;
+    }
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+    .depo-card {
+      background: #F9FAFB;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid #E5E7EB;
+    }
+    .depo-card i {
+      color: #F59E0B;
+      font-size: 24px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .depo-card p {
+      font-size: 14px;
+      color: #4B5563;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .depo-autor {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .depo-cargo {
+      font-size: 12px;
+      color: #9CA3AF;
+    }
+    @media (max-width: 768px) {
+      .depo-grid { grid-template-columns: 1fr; }
+    }
 
-        td {
-            padding: 0.6rem;
-            border: 1px solid #ddd;
-        }
+    /* CTA FINAL */
+    .cta {
+      padding: 70px 0;
+      background: linear-gradient(135deg, #0B5E42, #0A3B2A);
+      color: white;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .cta p {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cta .btn-whatsapp {
+      background: #F59E0B;
+      font-size: 16px;
+    }
+    .cta .btn-form-white {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cta .btn-form-white:hover {
+      background: white;
+      color: #0B5E42;
+    }
+    .cta small {
+      display: block;
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
 
-        .price-promo {
-            color: #0066FF;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .price-market {
-            color: #999;
-            text-decoration: line-through;
-            font-size: 0.8rem;
-        }
-
-        /* Pacotes */
-        .packages-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .package-card {
-            flex: 1;
-            min-width: 220px;
-            background: #F8FAFF;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .package-card h4 {
-            color: #0066FF;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #0066FF;
-        }
-
-        .package-savings {
-            font-size: 0.7rem;
-            color: #10B981;
-            font-weight: bold;
-        }
-
-        /* Resumo */
-        .resumo {
-            background: #F8FAFF;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #0066FF;
-        }
-
-        .resumo h3 {
-            color: #0066FF;
-            margin-bottom: 0.5rem;
-        }
-
-        .resumo ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .resumo li {
-            background: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid #ddd;
-        }
-
-        /* Rodapé */
-        .footer {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #777;
-            border-top: 1px solid #ddd;
-            padding-top: 1rem;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .container {
-                box-shadow: none;
-                padding: 0;
-            }
-            .section-title {
-                background: #0066FF;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            th {
-                background: #F0F4FE;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+    /* FOOTER */
+    .footer {
+      background: #1F2937;
+      color: white;
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .footer-links a {
+      color: #9CA3AF;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+    .footer-social a {
+      color: #9CA3AF;
+      font-size: 22px;
+      transition: all 0.3s;
+    }
+    .footer-social a:hover {
+      color: white;
+      transform: translateY(-2px);
+    }
+    .footer p {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+    .footer a {
+      color: #9CA3AF;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📊 TABELA DE PREÇOS</h1>
-            <p>DataDesh Soluções Digitais</p>
-            <p class="contato">📞 (31) 98498-7116 | ✉️ datadshsolucoes@gmail.com</p>
-            <p>💳 Pagamento: 50% sinal / 50% na entrega | 📦 Entrega em 5-7 dias úteis</p>
-        </div>
 
-        <!-- WEB & SITES -->
-        <div class="section">
-            <div class="section-title">🌐 WEB & SITES</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Mini-site GitHub Pages (1 página)</td><td>Página única responsiva</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
-                    <tr><td>Mini-site com botões para links</td><td>Link in Bio profissional</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
-                    <tr><td>Páginas HTML (cardápio, ofertas)</td><td>Cardápio digital interativo</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>7 dias</td></tr>
-                    <tr><td>Site automatizado (vagas 24h)</td><td>Buscador de vagas</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
-                    <tr><td>Site agregador de notícias</td><td>Agregador de feeds RSS</td><td><span class="price-promo">R$ 600</span> <span class="price-market">R$ 900</span></td><td>5 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- DASHBOARDS -->
-        <div class="section">
-            <div class="section-title">📊 DASHBOARDS & AUTOMAÇÃO</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Painel análise dados (simples) + Sheets</td><td>Dashboard básico com gráficos</td><td><span class="price-promo">R$ 350</span> <span class="price-market">R$ 600</span></td><td>7 dias</td></tr>
-                    <tr><td>Painel análise dados (intermediário)</td><td>Dashboard com filtros e métricas</td><td><span class="price-promo">R$ 500</span> <span class="price-market">R$ 800</span></td><td>7 dias</td></tr>
-                    <tr><td>Painel com agenda eletrônica</td><td>Agendamento de clientes</td><td><span class="price-promo">R$ 300</span> <span class="price-market">R$ 500</span></td><td>7 dias</td></tr>
-                    <tr><td>Criação de fluxos de trabalho e automação</td><td>Automação de processos</td><td><span class="price-promo">R$ 400</span> <span class="price-market">R$ 600</span></td><td>7 dias</td></tr>
-                    <tr><td>Painéis com gráficos (Dashboards)</td><td>Dashboard personalizado com KPIs</td><td><span class="price-promo">R$ 450</span> <span class="price-market">R$ 700</span></td><td>7 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- DOCS & CURRÍCULOS -->
-        <div class="section">
-            <div class="section-title">📄 DOCS & CURRÍCULOS</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Currículo digital + GitHub Pages</td><td>Currículo online profissional</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>5 dias</td></tr>
-                    <tr><td>Criação de eBooks em PDF</td><td>Layout e exportação de eBook</td><td><span class="price-promo">R$ 200</span> <span class="price-market">R$ 350</span></td><td>5 dias</td></tr>
-                    <tr><td>Criação de resumos em PDF</td><td>Resumo organizado em PDF</td><td><span class="price-promo">R$ 50</span> <span class="price-market">R$ 90</span></td><td>5 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ARTES & DESIGN -->
-        <div class="section">
-            <div class="section-title">🎨 ARTES & DESIGN</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Cartão de visita em HTML</td><td>Cartão digital interativo</td><td><span class="price-promo">R$ 50</span> <span class="price-market">R$ 90</span></td><td>5 dias</td></tr>
-                    <tr><td>Convite digital + Google Forms</td><td>Convite online com RSVP</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>5 dias</td></tr>
-                    <tr><td>Banner/post social (arte + legenda)</td><td>Post para redes sociais</td><td><span class="price-promo">R$ 45</span> <span class="price-market">R$ 80</span></td><td>5 dias</td></tr>
-                    <tr><td>Pacote de posts (5 artes + legendas)</td><td>5 posts para 1 semana</td><td><span class="price-promo">R$ 180</span> <span class="price-market">R$ 300</span></td><td>7 dias</td></tr>
-                    <tr><td>Criação de logotipo simples (vetorial)</td><td>Logo básico em vetor</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>7 dias</td></tr>
-                    <tr><td>Roteiro para vídeo curto (Reels/TikTok)</td><td>Roteiro otimizado</td><td><span class="price-promo">R$ 90</span> <span class="price-market">R$ 150</span></td><td>5 dias</td></tr>
-                    <tr><td>Pacote de banners promo (3 modelos)</td><td>3 banners promocionais</td><td><span class="price-promo">R$ 120</span> <span class="price-market">R$ 200</span></td><td>5 dias</td></tr>
-                    <tr><td>Identidade visual básica</td><td>Mini-branding</td><td><span class="price-promo">R$ 250</span> <span class="price-market">R$ 400</span></td><td>7 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- TECH & SUPORTE -->
-        <div class="section">
-            <div class="section-title">🛠️ TECH & SUPORTE</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Limpeza de PC/notebook (remoto)</td><td>Otimização remota</td><td><span class="price-promo">R$ 120</span> <span class="price-market">R$ 200</span></td><td>5 dias</td></tr>
-                    <tr><td>Limpeza de celular Android</td><td>Otimização de armazenamento</td><td><span class="price-promo">R$ 60</span> <span class="price-market">R$ 100</span></td><td>5 dias</td></tr>
-                    <tr><td>Backup automático via Google Drive</td><td>Configuração de backup</td><td><span class="price-promo">R$ 100</span> <span class="price-market">R$ 160</span></td><td>5 dias</td></tr>
-                    <tr><td>Diagnóstico de lentidão + relatório</td><td>Análise de desempenho</td><td><span class="price-promo">R$ 90</span> <span class="price-market">R$ 150</span></td><td>5 dias</td></tr>
-                    <tr><td>Instalação remota de softwares básicos</td><td>Instalação de programas</td><td><span class="price-promo">R$ 80</span> <span class="price-market">R$ 130</span></td><td>5 dias</td></tr>
-                    <tr><td>Compactar fotos no Drive</td><td>Compressão de imagens</td><td><span class="price-promo">R$ 50</span> <span class="price-market">R$ 80</span></td><td>5 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ADMIN & ORGANIZAÇÃO -->
-        <div class="section">
-            <div class="section-title">📋 ADMIN & ORGANIZAÇÃO</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Pesquisa científica (ABNT)</td><td>Formatação ABNT</td><td><span class="price-promo">R$ 300</span> <span class="price-market">R$ 500</span></td><td>7 dias</td></tr>
-                    <tr><td>Formulário Google Forms + coleta</td><td>Formulário com lógica</td><td><span class="price-promo">R$ 70</span> <span class="price-market">R$ 120</span></td><td>5 dias</td></tr>
-                    <tr><td>Edição de arquivos, relatórios e rotinas</td><td>Sob consulta</td><td><strong>Sob consulta</strong></td><td>5 dias</td></tr>
-                    <tr><td>Organização de arquivos e pastas</td><td>Reestruturação lógica</td><td><span class="price-promo">R$ 120</span> <span class="price-market">R$ 200</span></td><td>5 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- CONSULTORIA & APRESENTAÇÕES -->
-        <div class="section">
-            <div class="section-title">🎤 CONSULTORIA & APRESENTAÇÕES</div>
-            <table>
-                <thead>
-                    <tr><th>Serviço</th><th>Descrição</th><th>Preço</th><th>Prazo</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Apresentações / Slides (até 20 slides)</td><td>PPT ou Google Slides</td><td><span class="price-promo">R$ 150</span> <span class="price-market">R$ 250</span></td><td>5 dias</td></tr>
-                    <tr><td>Análise de sites e redes sociais</td><td>Auditoria + relatório</td><td><span class="price-promo">R$ 300</span> <span class="price-market">R$ 500</span></td><td>7 dias</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- PACOTES PROMOCIONAIS -->
-        <div class="section">
-            <div class="section-title">🎁 PACOTES PROMOCIONAIS</div>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <h4>Pacote Start</h4>
-                    <p>Currículo Digital + Landing Page</p>
-                    <div class="package-price">R$ 247</div>
-                    <div class="package-savings">Economize 45%</div>
-                    <small>Mercado: R$ 450</small>
-                </div>
-                <div class="package-card">
-                    <h4>Pacote Profissional</h4>
-                    <p>Currículo + Portfólio + Landing</p>
-                    <div class="package-price">R$ 350</div>
-                    <div class="package-savings">Economize 46%</div>
-                    <small>Mercado: R$ 650</small>
-                </div>
-                <div class="package-card">
-                    <h4>Pacote Premium</h4>
-                    <p>Site + Dashboard + Identidade</p>
-                    <div class="package-price">R$ 597</div>
-                    <div class="package-savings">Economize 50%</div>
-                    <small>Mercado: R$ 1.200</small>
-                </div>
-                <div class="package-card">
-                    <h4>Kit Completo</h4>
-                    <p>Currículo + Portfólio + PDF</p>
-                    <div class="package-price">R$ 297</div>
-                    <div class="package-savings">Economize 46%</div>
-                    <small>Mercado: R$ 550</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- RESUMO PARA FECHAR NEGÓCIO -->
-        <div class="resumo">
-            <h3>📝 RESUMO PARA FECHAR NEGÓCIO</h3>
-            <ul>
-                <li>📄 Currículo Digital: R$ 70</li>
-                <li>🎨 Portfólio Online: R$ 100</li>
-                <li>🌐 Site Básico (1 página): R$ 200</li>
-                <li>🚀 Site Profissional (5 páginas): R$ 697</li>
-                <li>📊 Dashboard Simples: R$ 350</li>
-                <li>📈 Dashboard Avançado: R$ 500</li>
-                <li>🎁 Pacote Start: R$ 247</li>
-                <li>⭐ Pacote Profissional: R$ 350</li>
-                <li>👑 Pacote Premium: R$ 597</li>
-                <li>📦 Kit Completo: R$ 297</li>
-            </ul>
-            <p style="margin-top: 0.8rem;"><strong>💰 CONDIÇÕES:</strong> 50% de sinal / 50% na entrega | 5-7 dias úteis | 30 dias de suporte | Código fonte entregue</p>
-            <p style="margin-top: 0.5rem;"><strong>⚠️ Vagas limitadas por semana! Garanta já o seu.</strong></p>
-        </div>
-
-        <div class="footer">
-            <p>DataDesh Soluções Digitais | Ana Paula</p>
-            <p>📞 (31) 98498-7116 | ✉️ datadshsolucoes@gmail.com</p>
-            <p>💳 PIX: datadshsolucoes@gmail.com</p>
-        </div>
+<!-- NAVEGAÇÃO SUPERIOR -->
+<nav class="navbar">
+  <div class="nav-content">
+    <a href="#" class="logo">DataDesh<span>Soluções</span></a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="nav-btn-outline" target="_blank"><i class="fas fa-tag"></i> Preços</a>
+      <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="nav-btn-outline" target="_blank"><i class="fas fa-edit"></i> Formulário</a>
+      <a href="https://wa.me/5531984987116" class="nav-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
+  </div>
+</nav>
+
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/5531984987116?text=Olá!%20Quero%20saber%20mais%20sobre%20seus%20serviços" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-chart-line"></i> +27 projetos entregues | Especialista em pequenos negócios
+    </div>
+    <h1>Crio sites que ajudam seu negócio a <span>conseguir clientes todos os dias</span></h1>
+    <p>Sites profissionais e dashboards interativos que realmente trazem resultados. Foco em conversão e vendas.</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/5531984987116?text=Quero%20começar%20meu%20projeto" class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Quero meu site agora
+      </a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn-form" target="_blank">
+        <i class="fas fa-edit"></i> Preencher formulário
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-number">27+</div><div class="stat-label">projetos entregues</div></div>
+      <div class="stat"><div class="stat-number">100%</div><div class="stat-label">clientes satisfeitos</div></div>
+      <div class="stat"><div class="stat-number">15 dias</div><div class="stat-label">prazo de entrega</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOU EU -->
+<section id="sobre" class="quem-sou">
+  <div class="container">
+    <div class="quem-sou-grid">
+      <div class="foto">
+        <div class="foto-circle">
+          <i class="fas fa-user-circle"></i>
+        </div>
+      </div>
+      <div>
+        <h2>Oi, sou a <span>Ana</span> 👋</h2>
+        <p>Tecnóloga em Ciência de Dados, especialista em criar sites e dashboards que realmente ajudam negócios a crescer. Desenvolvi <strong>27 painéis interativos</strong> para gestão da saúde e sites para pequenos negócios.</p>
+        <p>Meu trabalho é transformar sua ideia em uma ferramenta que atrai clientes e vende. Sem enrolação, com foco no que importa: seu negócio crescer.</p>
+        <div class="contatos">
+          <a href="https://wa.me/5531984987116" class="contato-item" target="_blank"><i class="fab fa-whatsapp"></i> (31) 98498-7116</a>
+          <a href="mailto:datadshsolucoes@gmail.com" class="contato-item"><i class="far fa-envelope"></i> datadshsolucoes@gmail.com</a>
+          <a href="https://www.instagram.com/datadeshsolucoesdigitais/" class="contato-item" target="_blank"><i class="fab fa-instagram"></i> @datadeshsolucoesdigitais</a>
+          <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="contato-item" target="_blank"><i class="fas fa-edit"></i> Formulário de contato</a>
+          <a href="https://aninhatata.github.io/portifolio/" class="contato-item" target="_blank"><i class="fas fa-briefcase"></i> Portfólio completo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS REAIS - 5 PROJETOS -->
+<section id="projetos" class="projetos">
+  <div class="container">
+    <h2 class="section-title">Projetos <span>reais</span></h2>
+    <p class="section-subtitle">Veja na prática o que já entreguei</p>
+    <div class="projetos-grid">
+      <!-- Projeto 1: Dashboard de Saúde -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/area%20de%20trabalho.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fas fa-chart-line"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>Dashboard - Gestão da Saúde</h3>
+          <p>Painel completo com gráficos interativos, filtros dinâmicos e dados em tempo real para gestão de filas de espera.</p>
+          <span class="projeto-resultado">-40% tempo de análise</span>
+          <a href="https://aninhatata.github.io/portifolio/" class="projeto-link" target="_blank">Ver projeto completo →</a>
+        </div>
+      </div>
+      <!-- Projeto 2: Dashboards Interativos -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>Dashboards Interativos</h3>
+          <p>Gráficos dinâmicos sincronizados com tabelas, filtros avançados e visualizações profissionais para tomada de decisão.</p>
+          <span class="projeto-resultado">+35% eficiência operacional</span>
+          <a href="https://www.instagram.com/reel/DWMHSjpRrvR/" class="projeto-link" target="_blank">Ver demonstração no Instagram →</a>
+        </div>
+      </div>
+      <!-- Projeto 3: Reel - Negócio merece site à altura -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/area%20de%20trabalho.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>✨ Seu negócio merece um site à altura!</h3>
+          <p>Desenvolvo sites modernos, rápidos e estratégicos para atrair clientes. Conheça meu trabalho.</p>
+          <span class="projeto-resultado">+27 projetos entregues</span>
+          <a href="https://www.instagram.com/reel/DWMFvG7RDbX/" class="projeto-link" target="_blank">Ver no Instagram →</a>
+        </div>
+      </div>
+      <!-- Projeto 4: Reel - Perdendo clientes (1) -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos%202.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>⚠️ Você está PERDENDO clientes todos os dias!</h3>
+          <p>Se o seu negócio não tem um site profissional, você está ficando pra trás. Resolva seus problemas agora!</p>
+          <span class="projeto-resultado">Clientes perdidos? Resolva já!</span>
+          <a href="https://www.instagram.com/reel/DWZx2RiRs--/" class="projeto-link" target="_blank">Ver no Instagram →</a>
+        </div>
+      </div>
+      <!-- Projeto 5: Reel - Perdendo clientes (2) -->
+      <div class="projeto-card">
+        <div class="projeto-img" style="background-image: url('https://raw.githubusercontent.com/datadeshsolucoes-design/servicosdigitais/main/graficos%20interativos%202.png'); background-size: cover; background-position: center;">
+          <div class="projeto-img-overlay">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="projeto-info">
+          <h3>⚠️ Você está PERDENDO clientes todos os dias!</h3>
+          <p>Se o seu negócio não tem um site profissional, você está ficando pra trás. Mude isso HOJE!</p>
+          <span class="projeto-resultado">Fale comigo agora!</span>
+          <a href="https://www.instagram.com/reel/DWZxnapxBeA/" class="projeto-link" target="_blank">Ver no Instagram →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="https://aninhatata.github.io/portifolio/" class="btn-whatsapp" style="background: #0B5E42; font-size: 14px; padding: 12px 25px;" target="_blank">Ver portfólio completo (27 projetos) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOÇÕES -->
+<section class="promocoes">
+  <div class="container">
+    <h2 class="section-title">🎁 <span>Promoções</span> em Destaque</h2>
+    <p class="section-subtitle">Vagas limitadas esta semana — garanta o seu!</p>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <div class="promo-badge">-45%</div>
+        <div class="promo-img"><i class="fas fa-file-alt"></i></div>
+        <div class="promo-info">
+          <h3>Pacote Start</h3>
+          <p>Currículo Digital + Landing Page</p>
+          <div class="promo-price"><span class="promo-old">R$ 450</span> R$ 247</div>
+          <a href="https://wa.me/5531984987116?text=Quero%20o%20Pacote%20Start" class="promo-btn" target="_blank">Garantir vaga →</a>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-badge">-46%</div>
+        <div class="promo-img"><i class="fas fa-briefcase"></i></div>
+        <div class="promo-info">
+          <h3>Pacote Profissional</h3>
+          <p>Currículo + Portfólio + Landing</p>
+          <div class="promo-price"><span class="promo-old">R$ 650</span> R$ 350</div>
+          <a href="https://wa.me/5531984987116?text=Quero%20o%20Pacote%20Profissional" class="promo-btn" target="_blank">Garantir vaga →</a>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-badge">-50%</div>
+        <div class="promo-img"><i class="fas fa-crown"></i></div>
+        <div class="promo-info">
+          <h3>Pacote Premium</h3>
+          <p>Site + Dashboard + Identidade</p>
+          <div class="promo-price"><span class="promo-old">R$ 1.200</span> R$ 597</div>
+          <a href="https://wa.me/5531984987116?text=Quero%20o%20Pacote%20Premium" class="promo-btn" target="_blank">Garantir vaga →</a>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-badge">-46%</div>
+        <div class="promo-img"><i class="fas fa-box"></i></div>
+        <div class="promo-info">
+          <h3>Kit Completo</h3>
+          <p>Currículo + Portfólio + PDF</p>
+          <div class="promo-price"><span class="promo-old">R$ 550</span> R$ 297</div>
+          <a href="https://wa.me/5531984987116?text=Quero%20o%20Kit%20Completo" class="promo-btn" target="_blank">Garantir vaga →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="servicos">
+  <div class="container">
+    <h2 class="section-title">O que eu <span>faço</span></h2>
+    <p class="section-subtitle">Soluções diretas que entregam resultado</p>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icon"><i class="fas fa-globe"></i></div>
+        <h3>Sites Profissionais</h3>
+        <p>Sites modernos, responsivos e otimizados para conversão. Landing pages que vendem.</p>
+        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 15 dias</div>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Dashboards Interativos</h3>
+        <p>Painéis com gráficos, filtros e dados em tempo real. Integração com Google Sheets.</p>
+        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 15 dias</div>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon"><i class="fas fa-robot"></i></div>
+        <h3>Automações</h3>
+        <p>Automatize processos e integre ferramentas para ganhar tempo e produtividade.</p>
+        <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" class="servico-link" target="_blank">Ver preços →</a>
+        <div class="prazo-badge"><i class="far fa-clock"></i> Prazo: 7 dias</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="resultados">
+  <div class="container">
+    <h2 class="section-title">Resultados <span>reais</span></h2>
+    <p class="section-subtitle">O que meus projetos já entregaram</p>
+    <div class="resultados-grid">
+      <div class="resultado-item">
+        <div class="resultado-numero">-40%</div>
+        <div class="resultado-texto">tempo de análise de dados</div>
+      </div>
+      <div class="resultado-item">
+        <div class="resultado-numero">27+</div>
+        <div class="resultado-texto">projetos entregues</div>
+      </div>
+      <div class="resultado-item">
+        <div class="resultado-numero">100%</div>
+        <div class="resultado-texto">clientes satisfeitos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" class="depoimentos">
+  <div class="container">
+    <h2 class="section-title">Quem já <span>confiou</span></h2>
+    <p class="section-subtitle">Depoimentos de quem teve resultados com meus projetos</p>
+    <div class="depo-grid">
+      <div class="depo-card">
+        <i class="fas fa-quote-left"></i>
+        <p>"Os dashboards criados pela Ana transformaram nossa gestão. Hoje tomamos decisões muito mais rápidas."</p>
+        <div class="depo-autor">Secretaria de Saúde</div>
+        <div class="depo-cargo">Prefeitura Municipal</div>
+      </div>
+      <div class="depo-card">
+        <i class="fas fa-quote-left"></i>
+        <p>"Entregou antes do prazo e ficou perfeito. Minha plataforma de cursos está rodando liso e meus alunos adoraram."</p>
+        <div class="depo-autor">Carlos Eduardo</div>
+        <div class="depo-cargo">Edu Academy</div>
+      </div>
+      <div class="depo-card">
+        <i class="fas fa-quote-left"></i>
+        <p>"Melhor investimento que fiz! A landing page converte muito. Atendimento rápido e suporte excelente."</p>
+        <div class="depo-autor">Fernanda Lima</div>
+        <div class="depo-cargo">Studio Pilates</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta">
+  <div class="container">
+    <h2>Vamos transformar seu negócio em resultados?</h2>
+    <p>Fale comigo agora e descubra como posso ajudar você a conseguir mais clientes.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5531984987116?text=Quero%20saber%20mais%20sobre%20os%20serviços" class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+      </a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" class="btn-form-white" target="_blank">
+        <i class="fas fa-edit"></i> Preencher formulário
+      </a>
+    </div>
+    <small>⚠️ Atendo apenas 3 projetos por semana para garantir qualidade. Prazo mínimo: 15 dias para sites e dashboards.</small>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/termos-uso.html" target="_blank">Termos de Uso</a>
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/politica-privacidade.html" target="_blank">Política de Privacidade</a>
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/contrato-modelo.html" target="_blank">Modelo de Contrato</a>
+      <a href="https://datadeshsolucoes-design.github.io/servicosdigitais/tabela_pre%C3%A7os.html" target="_blank">Tabela de Preços</a>
+      <a href="https://docs.google.com/forms/d/10BNhmVAOWsMX5mpnDO0gp-VTZ7r45PiGezvORu79VtI/edit" target="_blank">Formulário de Contato</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/datadeshsolucoesdigitais/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/5531984987116" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:datadshsolucoes@gmail.com"><i class="far fa-envelope"></i></a>
+      <a href="https://aninhatata.github.io/portifolio/" target="_blank"><i class="fas fa-briefcase"></i></a>
+      <a href="https://github.com/datadeshsolucoes-design" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p>© 2026 DataDesh Soluções - Ana | <a href="https://wa.me/5531984987116" target="_blank">(31) 98498-7116</a> | <a href="mailto:datadshsolucoes@gmail.com">datadshsolucoes@gmail.com</a></p>
+    <p style="margin-top: 10px;">27 projetos entregues • 4+ anos de experiência • Tecnóloga em Ciência de Dados • Prazo mínimo: 15 dias</p>
+  </div>
+</footer>
+
 </body>
 </html>
